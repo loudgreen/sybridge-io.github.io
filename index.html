@@ -3,77 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SyBridge.io — Direct Online Ordering for Restaurants</title>
+  <title>SyBridge.io — Stop Losing Orders to Chaos</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-    header { text-align: center; padding: 60px 0; }
-    .logo { font-size: 32px; font-weight: 800; color: #1a1a1a; letter-spacing: -1px; }
-    .tagline { font-size: 18px; color: #666; margin-top: 12px; }
-    .hero { background: #1a1a1a; color: white; padding: 60px; border-radius: 16px; margin: 40px 0; }
-    .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; }
-    .hero p { font-size: 20px; opacity: 0.9; margin-bottom: 30px; }
-    .cta-btn { display: inline-block; background: #fff; color: #1a1a1a; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .brand-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(14,165,233,0.3); }
+    .brand-icon svg { width: 32px; height: 32px; }
+    .brand-text { text-align: left; }
+    .brand-name { font-size: 32px; font-weight: 800; color: #1a1a1a; letter-spacing: -1px; line-height: 1; }
+    .brand-tagline { font-size: 15px; color: #666; margin-top: 4px; }
+    header { text-align: center; padding: 60px 0 40px; }
+    .hero { background: #1a1a1a; color: white; padding: 60px; border-radius: 16px; margin: 40px 0; text-align: center; }
+    .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 16px; line-height: 1.15; }
+    .hero-sub { font-size: 20px; opacity: 0.9; margin-bottom: 12px; }
+    .hero-pain { font-size: 16px; opacity: 0.75; margin-bottom: 32px; }
+    .cta-btn { display: inline-block; background: #fff; color: #1a1a1a; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; margin: 8px; }
     .cta-btn:hover { background: #f0f0f0; }
-    .problem { background: white; padding: 40px; border-radius: 12px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .problem h2 { font-size: 28px; margin-bottom: 20px; }
-    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-    .problem-item { padding: 20px; background: #fff5f5; border-left: 4px solid #ef4444; border-radius: 8px; }
-    .problem-item h3 { font-size: 16px; margin-bottom: 8px; color: #dc2626; }
-    .problem-item p { font-size: 14px; color: #666; }
-    .solution { background: white; padding: 40px; border-radius: 12px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .solution h2 { font-size: 28px; margin-bottom: 20px; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 20px; }
-    .feature { padding: 20px; background: #f0fdf4; border-radius: 8px; border-left: 4px solid #22c55e; }
-    .feature h3 { font-size: 15px; margin-bottom: 6px; }
-    .feature p { font-size: 13px; color: #666; }
+    .cta-secondary { display: inline-block; background: transparent; color: #fff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid rgba(255,255,255,0.4); margin: 8px; }
+    .cta-secondary:hover { border-color: #fff; }
+    .badge { display: inline-block; background: #22c55e; color: white; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
+    .section { padding: 60px 0; }
+    .section h2 { font-size: 32px; margin-bottom: 24px; text-align: center; }
+    .section-sub { text-align: center; color: #666; margin-bottom: 40px; font-size: 18px; }
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+    .before { background: #fff5f5; padding: 30px; border-radius: 12px; border-left: 4px solid #ef4444; }
+    .after { background: #f0fdf4; padding: 30px; border-radius: 12px; border-left: 4px solid #22c55e; }
+    .before h3, .after h3 { font-size: 18px; margin-bottom: 16px; }
+    .before ul, .after ul { list-style: none; }
+    .before li, .after li { padding: 8px 0; font-size: 15px; }
+    .before li::before { content: "✗"; color: #ef4444; margin-right: 10px; }
+    .after li::before { content: "✓"; color: #22c55e; margin-right: 10px; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 24px; border-radius: 8px; margin: 20px 0; }
+    .highlight-box p { font-size: 16px; color: #1e40af; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+    .feature { padding: 24px; background: white; border-radius: 8px; border: 1px solid #e5e7eb; }
+    .feature h3 { font-size: 16px; margin-bottom: 8px; }
+    .feature p { font-size: 14px; color: #666; }
+    .feature .emoji { font-size: 28px; margin-bottom: 8px; display: block; }
     .demo { background: #1a1a1a; color: white; padding: 40px; border-radius: 12px; margin: 30px 0; text-align: center; }
     .demo h2 { font-size: 28px; margin-bottom: 16px; }
-    .demo-link { display: inline-block; color: #60a5fa; text-decoration: none; font-size: 16px; margin: 8px 0; }
-    .demo-link:hover { text-decoration: underline; }
-    .pricing { background: white; padding: 40px; border-radius: 12px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .pricing h2 { font-size: 28px; margin-bottom: 20px; text-align: center; }
-    .pricing-table { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px; }
-    .pricing-card { padding: 30px; border: 2px solid #e5e7eb; border-radius: 12px; text-align: center; }
-    .pricing-card.featured { border-color: #1a1a1a; background: #fafafa; }
-    .pricing-card h3 { font-size: 20px; margin-bottom: 12px; }
+    .order-mockup { background: white; color: #1a1a1a; padding: 24px; border-radius: 8px; max-width: 400px; margin: 20px auto; text-align: left; }
+    .order-mockup h4 { font-size: 16px; margin-bottom: 12px; color: #1a1a1a; }
+    .order-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+    .order-item .upsell { color: #22c55e; font-size: 12px; font-weight: 600; }
+    .order-total { display: flex; justify-content: space-between; padding: 12px 0; font-weight: 700; font-size: 16px; border-top: 2px solid #1a1a1a; margin-top: 8px; }
+    .pricing-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
+    .pricing-card { padding: 30px; border: 2px solid #e5e7eb; border-radius: 12px; text-align: center; background: white; }
+    .pricing-card.featured { border-color: #1a1a1a; background: #fafafa; position: relative; }
+    .pricing-card .best-value { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: white; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; }
+    .pricing-card h3 { font-size: 20px; margin-bottom: 8px; }
     .price { font-size: 36px; font-weight: 800; color: #1a1a1a; }
     .price-period { font-size: 14px; color: #666; }
+    .pricing-card .who { font-size: 13px; color: #666; margin: 12px 0; padding: 8px; background: #f9fafb; border-radius: 6px; }
     .pricing-card ul { list-style: none; margin: 20px 0; text-align: left; }
     .pricing-card li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
     .pricing-card li:before { content: "✓"; color: #22c55e; margin-right: 8px; }
+    .risk-killers { display: flex; gap: 24px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+    .risk-killer { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666; }
+    .risk-killer .check { color: #22c55e; font-weight: 700; font-size: 18px; }
     .testimonial { background: #fef3c7; padding: 40px; border-radius: 12px; margin: 30px 0; border-left: 4px solid #f59e0b; }
     .testimonial blockquote { font-size: 20px; font-style: italic; margin-bottom: 16px; }
     .testimonial cite { font-size: 14px; font-weight: 600; color: #666; font-style: normal; }
-    .highlight-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 24px; border-radius: 8px; margin: 20px 0; }
-    .highlight-box p { font-size: 16px; color: #1e40af; }
-    footer { text-align: center; padding: 40px 0; color: #666; font-size: 14px; }
+    .final-cta { text-align: center; padding: 60px 0; }
+    .final-cta h2 { font-size: 32px; margin-bottom: 16px; }
+    .final-cta p { color: #666; margin-bottom: 24px; font-size: 18px; }
+    .final-cta .phone { font-size: 20px; font-weight: 700; color: #1a1a1a; margin: 12px 0; }
+    .persona-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+    .persona { padding: 30px; background: white; border-radius: 12px; border: 2px solid #e5e7eb; text-align: center; }
+    .persona h3 { font-size: 20px; margin-bottom: 12px; }
+    .persona p { color: #666; font-size: 15px; margin-bottom: 16px; }
+    footer { text-align: center; padding: 40px 0; color: #666; font-size: 14px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
     @media (max-width: 768px) {
-      .problem-grid, .pricing-table { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 28px; }
+      .before-after, .persona-split, .pricing-table { grid-template-columns: 1fr; }
       .hero { padding: 40px 24px; }
+      .hero h1 { font-size: 28px; }
+      .risk-killers { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <style>
-    .brand { display: flex; align-items: center; justify-content: center; gap: 14px; }
-    .brand-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(14,165,233,0.3);
-    }
-    .brand-icon svg { width: 32px; height: 32px; }
-    .brand-text { text-align: left; }
-    .brand-name { font-size: 32px; font-weight: 800; color: #1a1a1a; letter-spacing: -1px; line-height: 1; }
-    .brand-tagline { font-size: 15px; color: #666; margin-top: 4px; }
-  </style>
-
   <header>
     <div class="brand">
       <div class="brand-icon">
@@ -84,146 +96,241 @@
       </div>
       <div class="brand-text">
         <div class="brand-name">SyBridge.io</div>
-        <div class="brand-tagline">Direct Online Ordering for Independent Restaurants</div>
+        <div class="brand-tagline">Automated Order Systems for Delis & Food Trucks</div>
       </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <div class="hero">
-    <h1>Keep DoorDash for Delivery.<br>Stop Paying 30% on Pickup.</h1>
-    <p>A custom order form for your website and social media. Customers order directly, pay via Square, and pick up at your counter. You keep 100% of the revenue.</p>
-    <a href="#pricing" class="cta-btn">Get Started →</a>
+    <h1>Take Orders Online<br>Without the Chaos</h1>
+    <p class="hero-sub">No missed calls. No messy texts. No pricing mistakes.</p>
+    <p class="hero-pain">Turn your menu into a clean, automated order system that increases order size & saves hours every day.</p>
+    <a href="tel:+15015515944" class="cta-btn">📞 Call to Get Started</a>
+    <a href="#pricing" class="cta-secondary">See Plans & Pricing</a>
   </div>
 
-  <div class="highlight-box">
-    <p><strong>We're not a DoorDash replacement.</strong> We're a pickup-order tool that captures the orders you already fulfill yourself — call-ins, regulars, Facebook visitors — and puts them on your own branded checkout.</p>
-  </div>
-
-  <div class="problem">
-    <h2>The Hidden Cost of Pickup Orders</h2>
-    <div class="problem-grid">
-      <div class="problem-item">
-        <h3>💸 15–30% on Pickup</h3>
-        <p>DoorDash charges full commission even when the customer drives to you. You cook. They pick up. DoorDash takes the cut.</p>
+  <!-- WHICH ONE ARE YOU? -->
+  <div class="section">
+    <h2>Which One Sounds Like You?</h2>
+    <div class="persona-split">
+      <div class="persona">
+        <h3>📱 I Take Orders by Phone/Text</h3>
+        <p>Customers call or text orders. You write them down. Things get missed during rush. Prices get jumbled.</p>
+        <a href="#no-dd" class="cta-btn" style="background: #1a1a1a; color: white;">See How It Works →</a>
       </div>
-      <div class="problem-item">
-        <h3>🔒 No Customer Data</h3>
-        <p>You don't own the relationship. No emails for marketing, no list of regulars.</p>
-      </div>
-      <div class="problem-item">
-        <h3>🐌 Slow Changes</h3>
-        <p>Update a price? Wait weeks for platform approval. Missed sales in the meantime.</p>
-      </div>
-      <div class="problem-item">
-        <h3>📵 Generic Experience</h3>
-        <p>Your restaurant looks identical to every other listing. No brand differentiation.</p>
+      <div class="persona">
+        <h3>🚗 I'm on DoorDash/UberEats</h3>
+        <p>You're paying 15–30% on pickup orders the customer drives to get themselves. That's your revenue walking out the door.</p>
+        <a href="#has-dd" class="cta-btn" style="background: #1a1a1a; color: white;">Keep the Money →</a>
       </div>
     </div>
   </div>
 
-  <div class="solution">
-    <h2>What You Get With SyBridge.io</h2>
+  <!-- BEFORE / AFTER -->
+  <div class="section" id="no-dd">
+    <h2>Your Day Right Now vs. With SyBridge</h2>
+    <p class="section-sub">See the difference in one lunch rush.</p>
+    <div class="before-after">
+      <div class="before">
+        <h3>❌ BEFORE — Phone & Text Orders</h3>
+        <ul>
+          <li>Phone ringing off the hook</li>
+          <li>Orders scribbled on paper</li>
+          <li>Missing modifiers ("extra sauce?")</li>
+          <li>Wrong totals at checkout</li>
+          <li>No record of what was ordered</li>
+          <li>Customer asks "what comes with it?" again</li>
+        </ul>
+      </div>
+      <div class="after">
+        <h3>✅ AFTER — SyBridge System</h3>
+        <ul>
+          <li>Customers order themselves online</li>
+          <li>Every item structured perfectly</li>
+          <li>Modifiers auto-selected & priced</li>
+          <li>Total calculated before they pay</li>
+          <li>Complete order log in Google Sheets</li>
+          <li>You just make the food</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOORDASH SECTION -->
+  <div class="section" id="has-dd">
+    <div class="highlight-box">
+      <p><strong>Already on DoorDash? Keep them for delivery.</strong> But pickup orders through DoorDash cost you 15–30% — and the customer drives to you. That's <em>your</em> revenue.</p>
+    </div>
+    <h2>Pickup Orders Shouldn't Cost You 30%</h2>
+    <p class="section-sub">Here's what happens when a customer picks up through DoorDash vs. SyBridge.</p>
+    <div class="before-after">
+      <div class="before">
+        <h3>❌ DoorDash Pickup — $30 Order</h3>
+        <ul>
+          <li>Customer pays $30</li>
+          <li>DoorDash takes $9 (30%)</li>
+          <li>You get $21</li>
+          <li>You don't get the customer's email</li>
+          <li>Customer belongs to DoorDash</li>
+          <li>Next time, they order there again</li>
+        </ul>
+      </div>
+      <div class="after">
+        <h3>✅ SyBridge Direct — $30 Order</h3>
+        <ul>
+          <li>Customer pays $30</li>
+          <li>Square fee: ~$0.90 (3%)</li>
+          <li><strong>You keep $29.10</strong></li>
+          <li>You own the customer email</li>
+          <li>They bookmark YOUR page</li>
+          <li>Next time? Direct to you.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT CUSTOMERS SEE -->
+  <div class="section">
+    <h2>What Your Customers See</h2>
+    <p class="section-sub">Clean. Simple. No confusion. Your customers order in under 60 seconds.</p>
+    <div class="demo">
+      <div class="order-mockup">
+        <h4>🥪 Order Summary — Utopia Deli</h4>
+        <div class="order-item">
+          <span>Philly Chsteek Sub</span>
+          <span>$13.00</span>
+        </div>
+        <div class="order-item">
+          <span>&nbsp;&nbsp;+ Extra Cheese</span>
+          <span>$1.50</span>
+        </div>
+        <div class="order-item">
+          <span>Loaded Bacon Fries</span>
+          <span>$13.00</span>
+        </div>
+        <div class="order-item">
+          <span><span class="upsell">+ Add a Drink?</span></span>
+          <span>$2.00</span>
+        </div>
+        <div class="order-total">
+          <span>Total</span>
+          <span>$29.50</span>
+        </div>
+        <p style="font-size: 13px; color: #666; margin-top: 12px;">Customer taps "Pay Now" → Square checkout → Done.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAKE EVERY ORDER BIGGER -->
+  <div class="section">
+    <h2>Make Every Order Bigger (Automatically)</h2>
+    <p class="section-sub">Your system doesn't just take orders — it grows them.</p>
     <div class="features">
       <div class="feature">
-        <h3>🎨 Branded Order Form</h3>
-        <p>Your logo, your colors, your menu. Looks like your restaurant — not a platform template.</p>
+        <span class="emoji">🥤</span>
+        <h3>Smart Upsells</h3>
+        <p>"Add a drink for $2?" "Make it a combo?" Suggested at the right moment, not awkwardly.</p>
       </div>
       <div class="feature">
-        <h3>💳 Direct Square Checkout</h3>
-        <p>Customer pays instantly. Money hits your Square account. No platform fees, no delays.</p>
+        <span class="emoji">🧀</span>
+        <h3>Modifier Pricing</h3>
+        <p>Extra cheese, double meat, no onions — priced correctly every time. No more guessing.</p>
       </div>
       <div class="feature">
-        <h3>📧 Email Confirmations</h3>
-        <p>Customer gets instant receipt with pickup time. You get order details in real time.</p>
+        <span class="emoji">📊</span>
+        <h3>See What Sells</span>
+        <p>Full order data in Google Sheets. Spot your best combos. Find what's profitable.</p>
       </div>
       <div class="feature">
-        <h3>🕐 Smart Hours Gate</h3>
-        <p>Orders blocked when you're closed. After-hours orders queued for your next open.</p>
-      </div>
-      <div class="feature">
-        <h3>🧮 Auto Tax Calculation</h3>
-        <p>City and state rates configured once, applied to every order automatically.</p>
-      </div>
-      <div class="feature">
-        <h3>📊 Order Dashboard</h3>
-        <p>Every order logged to Google Sheets. Filter, sort, export. See what's selling.</p>
-      </div>
-      <div class="feature">
-        <h3>🛡️ Validation</h3>
-        <p>Email and phone validation prevents fake orders and spam before they reach you.</p>
-      </div>
-      <div class="feature">
-        <h3>🔧 Easy Updates</h3>
-        <p>Change prices, add modifiers, update hours — in minutes, not weeks.</p>
+        <span class="emoji">⚡</span>
+        <h3>Rush-Proof</h3>
+        <p>No more "hold on let me check" during lunch rush. The system handles it. You cook.</p>
       </div>
     </div>
   </div>
 
-  <div class="demo">
-    <h2>See It In Action</h2>
-    <p>This exact system powers Utopia Deli in Little Rock, AR.</p>
-    <a href="https://www.theutopiadeli.com" class="demo-link" target="_blank">🔴 Live: Utopia Deli →</a>
-    <p style="margin-top: 16px; font-size: 14px; opacity: 0.7;">Customers order online, pay directly, and pick up at the counter.</p>
-  </div>
-
-  <div class="pricing" id="pricing">
-    <h2>Simple, Transparent Pricing</h2>
+  <!-- PRICING -->
+  <div class="section" id="pricing">
+    <h2>Pick the Plan That Matches Your Day</h2>
+    <p class="section-sub">Not features. Real outcomes for your real business.</p>
     <div class="pricing-table">
       <div class="pricing-card">
-        <h3>Setup</h3>
-        <div class="price">$3,500</div>
-        <div class="price-period">one-time</div>
+        <h3>Solo Vendor</h3>
+        <div class="price">$39</div>
+        <div class="price-period">per month</div>
+        <div class="who">✓ Less than 20 orders/day. Food trucks, small delis, weekend-only.</div>
         <ul>
-          <li>Complete system build</li>
-          <li>Square integration</li>
-          <li>Menu configuration</li>
-          <li>Testing & deployment</li>
-          <li>30 days of support</li>
+          <li>Clean branded order form</li>
+          <li>Square direct checkout</li>
+          <li>Email confirmations</li>
+          <li>Basic modifiers & pricing</li>
+          <li>Order log in Google Sheets</li>
+          <li>Email support</li>
         </ul>
+        <p style="font-size: 13px; color: #666; margin-top: 12px;">Setup: $1,500 one-time</p>
       </div>
       <div class="pricing-card featured">
-        <h3>Monthly</h3>
-        <div class="price">$250</div>
+        <div class="best-value">BEST VALUE</div>
+        <h3>Busy Days Plan</h3>
+        <div class="price">$149</div>
         <div class="price-period">per month</div>
+        <div class="who">✓ 20–100 orders/day. Regular delis, busy food trucks, catering.</div>
         <ul>
-          <li>Monitoring & alerts</li>
-          <li>Minor menu changes</li>
-          <li>Technical support</li>
-          <li>Payment link cleanup</li>
-          <li>Monthly health report</li>
+          <li>Everything in Solo Vendor</li>
+          <li>Built-in upsells (drinks, combos, extras)</li>
+          <li>Automatic tax calculation</li>
+          <li>Smart hours gate (closed = blocked)</li>
+          <li>Priority support</li>
+          <li>Monthly menu changes included</li>
         </ul>
+        <p style="font-size: 13px; color: #666; margin-top: 12px;">Setup: $3,500 one-time</p>
       </div>
       <div class="pricing-card">
-        <h3>Annual</h3>
-        <div class="price">$2,400</div>
-        <div class="price-period">per year (save $600)</div>
+        <h3>Full Operation</h3>
+        <div class="price">$349</div>
+        <div class="price-period">per month</div>
+        <div class="who">✓ 100+ orders/day. Multi-location, high-volume, custom needs.</div>
         <ul>
-          <li>Everything in Monthly</li>
-          <li>Priority support</li>
-          <li>Quarterly optimization</li>
-          <li>Feature updates included</li>
-          <li>$600 savings vs monthly</li>
+          <li>Everything in Busy Days</li>
+          <li>Multiple locations</li>
+          <li>Custom integrations</li>
+          <li>Dedicated account manager</li>
+          <li>Quarterly optimization reviews</li>
+          <li>White-label options</li>
         </ul>
+        <p style="font-size: 13px; color: #666; margin-top: 12px;">Setup: Custom quote</p>
       </div>
+    </div>
+
+    <div class="risk-killers">
+      <div class="risk-killer"><span class="check">✓</span> No contract</div>
+      <div class="risk-killer"><span class="check">✓</span> Cancel anytime</div>
+      <div class="risk-killer"><span class="check">✓</span> Live in 2–3 days</div>
+      <div class="risk-killer"><span class="check">✓</span> Pays for itself in one busy week</div>
     </div>
   </div>
 
+  <!-- TESTIMONIAL -->
   <div class="testimonial">
     <blockquote>
-      "We were paying platform fees on orders our customers picked up themselves. SyBridge.io gave us a direct checkout on our website. Now we keep every dollar on pickup orders."
+      "During lunch rush we were missing modifiers, writing orders on napkins, and customers were getting frustrated. Now they order online, everything's structured, and our average ticket went up because the system suggests combos and drinks automatically."
     </blockquote>
     <cite>— Utopia Deli, Little Rock, AR</cite>
   </div>
 
-  <div class="solution" style="text-align: center;">
-    <h2>Ready to Own Your Pickup Orders?</h2>
-    <p style="margin: 20px 0; color: #666;">Book a 15-minute demo. No pressure. We'll show you exactly how it works.</p>
-    <a href="mailto:phillip@sybridge.io" class="cta-btn" style="background: #1a1a1a; color: white;">Book Your Demo →</a>
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h2>Ready to Stop Losing Orders?</h2>
+    <p>Talk to a real person. No forms, no bots. Just a quick conversation about your setup.</p>
+    <div class="phone">📞 (501) 551-5944</div>
+    <p style="color: #666; font-size: 14px; margin-top: 12px;">Or text "ORDER SYSTEM" and we'll call you back.</p>
+    <a href="tel:+15015515944" class="cta-btn" style="background: #1a1a1a; color: white; font-size: 18px; padding: 18px 40px;">Call Now — Let's Talk</a>
   </div>
 
   <footer>
-    <p>🌉 SyBridge.io — Direct Online Ordering for Independent Restaurants</p>
-    <p>Built by operators who hate unnecessary costs as much as you do.</p>
+    <p>🌉 SyBridge.io — Automated Order Systems for Delis & Food Trucks</p>
+    <p>Built by people who've worked the line and know what rush hour actually looks like.</p>
   </footer>
 </div>
 
