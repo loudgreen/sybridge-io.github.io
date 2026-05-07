@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SyStack — Stop Losing Orders to Chaos</title>
+  <link rel="icon" type="image/png" href="icon.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
     .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
     .brand { display: flex; align-items: center; justify-content: center; gap: 14px; }
-    .brand-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(14,165,233,0.3); }
-    .brand-icon svg { width: 32px; height: 32px; }
+    .brand-icon { width: 48px; height: 48px; }
+    .brand-icon img { width: 48px; height: 48px; object-fit: contain; border-radius: 8px; }
     .brand-text { text-align: left; }
     .brand-name { font-size: 32px; font-weight: 800; color: #1a1a1a; letter-spacing: -1px; line-height: 1; }
     .brand-tagline { font-size: 15px; color: #666; margin-top: 4px; }
     header { text-align: center; padding: 60px 0 40px; }
-    .hero { background: #1a1a1a; color: white; padding: 60px; border-radius: 16px; margin: 40px 0; text-align: center; }
+    .hero-logo { text-align: center; margin-bottom: 30px; }
+    .hero-logo img { max-width: 280px; height: auto; }
+    .hero { background: #1a1a1a; color: white; padding: 40px 60px; border-radius: 16px; margin: 40px 0; text-align: center; }
     .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 16px; line-height: 1.15; }
     .hero-sub { font-size: 20px; opacity: 0.9; margin-bottom: 12px; }
     .hero-pain { font-size: 16px; opacity: 0.75; margin-bottom: 32px; }
@@ -89,10 +92,7 @@
   <header>
     <div class="brand">
       <div class="brand-icon">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="https://raw.githubusercontent.com/loudgreen/systack_branding-/refs/heads/main/logo%20mini.png">
-          <path d="M4 24h24M8 20v-8h4v8M14 20v-12h4v12M20 20v-6h4v6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M4 24c0-4 6-6 12-6s12 2 12 6" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-        </svg>
+        <img src="logo-mini.png" alt="SyStack">
       </div>
       <div class="brand-text">
         <div class="brand-name">SyStack</div>
@@ -103,6 +103,9 @@
 
   <!-- HERO -->
   <div class="hero">
+    <div class="hero-logo">
+      <img src="logo.png" alt="SyStack Logo">
+    </div>
     <h1>Take Orders Online<br>Without the Chaos</h1>
     <p class="hero-sub">No missed calls. No messy texts. No pricing mistakes.</p>
     <p class="hero-pain">Turn your menu into a clean, automated order system that increases order size & saves hours every day.</p>
@@ -329,6 +332,9 @@
   </div>
 
   <footer>
+    <div style="text-align:center;margin-bottom:20px;">
+      <img src="logo-mini.png" alt="SyStack" style="width:40px;height:40px;">
+    </div>
     <p>SyStack — Business Systems, Automated</p>
     <p>Built by operators for operators.</p>
   </footer>
